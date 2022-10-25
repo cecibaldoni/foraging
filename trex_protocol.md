@@ -6,8 +6,10 @@
 **-s** = settings
 
 ## Keyboard shortcuts (from trex GUI)
-__S__: Save tracking data
-__D__: Find the blobs in the videos
+__S__: Save tracking data  
+__D__: Find the blobs in the videos  
+__Z__: save _video_.results  
+__Space__: Start/stop playback
 
 
 
