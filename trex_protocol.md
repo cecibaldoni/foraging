@@ -44,6 +44,6 @@ track_max_speed = 1000
 example:    ```tgrabs -d /media/ceci/summer/cue/ -i /media/ceci/summer/cue/VIDEO_NAME.mkv -o /media/ceci/summer/cue/VIDEO_NAME.pv -s /media/ceci/summer/cue/SETTINGS.settings -load```
 * Once the video is converted to .pv (and you have ```.results``` and ```.settings``` files) you can ask trex to open  with defined ```.settings``` and ```output directory```  
 
-example:  ```trex -d /media/ceci/summer/cue/ -i /media/ceci/summer/cue/VIDEO_NAME.pv -o /media/ceci/summer/cue/VIDEO_NAME.pv -s /media/ceci/summer/cue/SETTINGS.settings -load```
+example:  ```trex -d /media/ceci/summer/cue/ -i /media/ceci/summer/cue/VIDEO_NAME.pv -o /media/ceci/summer/cue/VIDEO_NAME.pv -s /media/ceci/summer/cue/SETTINGS.settings -load```  
 This will open the GUI, where you can check if the tracking went well. If something goes wrong and the shrew is lost in some parts of the video, press **D** on the keyboard to see all the blobs, then select the one representing the shrew by clicking on the blob and then on "Fish0"
 * When the tracking is fixed, click on **Menu**, then on **save tracking data**  You can achieve the same goal by pressing **S** on the keyboard
