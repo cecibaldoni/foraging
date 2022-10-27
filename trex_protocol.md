@@ -51,4 +51,4 @@ This will open the GUI, where you can check if the tracking went well. If someth
 * To track all videos in a loop, all the files have to be in the same folder. Before moving them together, it's important that all the information you need is included in the file name, such as ```nameshrew_trial_season_experiment.extension```  
 Example: ```20201010-1_T1S1_spring_foraging.asf```  
 *NOTE: there can't be two videos with the same name!*  
-* The temporal sequence of trials is: T1S1, T1S2, T2S1, T2S2.
+* The temporal sequence of trials is: T1S1, T1S2, T2S1, T2S2.  
