@@ -60,3 +60,4 @@ When typing: ```for file in 2020*.mkv ; ``` type the beginning of the video name
 * Once the ```.pv``` are created, you can use a similar code to track the videos with trex:  
 ```for file in 2020*.pv ; do echo trex -d /home/ceci/cue/ -i /home/ceci/cue/$file -o /home/ceci/cue/$file -s /home/ceci/cue/default.settings -load ; done```  
 * Once the tracking is done, the files will open once at a time. You can check that the tracking went well and modify it if there are some mistake.  **If you change anything in the tracking**, remember to save the file from the trex GUI -> Menu -> Save config -> Save tracking data  
+* Close the trex GUI and another one will open, untill all the files are done.
