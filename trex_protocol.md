@@ -45,7 +45,7 @@ example:    ```tgrabs -d /media/ceci/summer/cue/ -i /media/ceci/summer/cue/VIDEO
 
 example:  ```trex -d /media/ceci/summer/cue/ -i /media/ceci/summer/cue/VIDEO_NAME.pv -o /media/ceci/summer/cue/VIDEO_NAME.pv -s /media/ceci/summer/cue/SETTINGS.settings -load```  
 This will open the GUI, where you can check if the tracking went well. If something goes wrong and the shrew is lost in some parts of the video, press **D** on the keyboard to see all the blobs, then select the one representing the shrew by clicking on the blob and then on "Fish0"
-* When the tracking is fixed, click on **Menu**, then on **save tracking data**  You can achieve the same goal by pressing **S** on the keyboard
+* When the tracking is fixed, click on **Menu**, then on **save tracking data**.    You can achieve the same goal by pressing **S** on the keyboard
 
 ## Open multiple videos and track them 
 * To track all videos in a loop, all the files have to be in the same folder. Before moving them together, it's important that all the information you need is included in the file name, such as ```nameshrew_trial_season_experiment.extension```  
