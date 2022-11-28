@@ -56,3 +56,4 @@ Example: ```20201010-1_T1S1_spring_foraging.asf```
 ```for file in 2020*.mkv ; do echo tgrabs -d /home/ceci/cue/ -i /home/ceci/cue/$file -o /home/ceci/cue/"${file%.mkv}" - enable_live_tracking true -s /home/ceci/cue/default.settings; done ```  
 Check the extension of the file you are trying to open. Possible extensions are  ```.asf```, ```.avi```, ```.mkv```  
 When typing: ```for file in 2020*.mkv ; ``` type the beginning of the video names before the star ```*```. For example, if you want to select all the files from one specific shrew, type the whole shrew name before the star, e.g. ```for file in 20201010-1*.mkv```
+*NOTE: if the file from different seasons have different settings file, open multiple files from one season at a time*  
