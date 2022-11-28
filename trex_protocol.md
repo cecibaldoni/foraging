@@ -57,3 +57,6 @@ Example: ```20201010-1_T1S1_spring_foraging.asf```
 Check the extension of the file you are trying to open. Possible extensions are  ```.asf```, ```.avi```, ```.mkv```  
 When typing: ```for file in 2020*.mkv ; ``` type the beginning of the video names before the star ```*```. For example, if you want to select all the files from one specific shrew, type the whole shrew name before the star, e.g. ```for file in 20201010-1*.mkv```
 *NOTE: if the file from different seasons have different settings file, open multiple files from one season at a time*  
+* Once the ```.pv``` are created, you can use a similar code to track the videos with trex:  
+```for file in 2020*.pv ; do echo trex -d /home/ceci/cue/ -i /home/ceci/cue/$file -o /home/ceci/cue/$file -s /home/ceci/cue/default.settings -load ; done```  
+* Once the tracking is done, the files will open once at a time. You can check that the tracking went well and modify it if there are some mistake.  **If you change anything in the tracking**, remember to save the file from the trex GUI -> Menu -> Save config -> Save tracking data  
