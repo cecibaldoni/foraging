@@ -7,7 +7,6 @@ library(png)
 library(transformr)
 library(gganimate)
 
-
 tracking <- read.csv("/home/ceci/data/foraging/csv/merged.csv") %>% 
   mutate(season = tolower(season))
 
@@ -40,7 +39,7 @@ track_ls <- split(tracking, tracking$unique_trial_ID)
 
 all_ls <- lapply(track_ls, function(x){
   #to call all blocks one at a time
-  x = track_ls[[1]] #can change to 2,3 or 4
+  #x = track_ls[[5]] #can change to 2,3 or 4
   
   #extract food coordinates for this trial AND convert to a sf object
   door <- coords %>%
@@ -79,7 +78,7 @@ all_ls <- lapply(track_ls, function(x){
   
   intersection_df <- data.frame()
   for (island in islands) {
-    intersection <- track_sf %>%
+    at_island <- track_sf %>%
       #st_intersection(hex_ls[[island]]) %>%
       st_intersection(islands_buffer[[island]]) %>% 
       as.data.frame() %>%
@@ -88,9 +87,14 @@ all_ls <- lapply(track_ls, function(x){
       mutate(timediff = frame - lag(frame)) %>%
       mutate(new_timediff = ifelse(is.na(timediff) | timediff != 1, 1, 0)) %>%
       mutate(visit_seq = cumsum(new_timediff))
-    intersection_df <- rbind(intersection_df, intersection)
+    intersection_df <- rbind(intersection_df, at_island)
   }
-  track_save <- track_sf %>% 
+  track_sf_2 <- track_sf %>%
+    full_join(intersection_df[c("frame", "island", "visit_seq")]) %>% 
+    arrange(frame) %>% 
+    mutate(journey = ifelse(!is.na(island), paste0("at_", island, "_", visit_seq), "travelling"))
+  
+  track_save <- track_sf_2 %>% 
     extract(geometry, c('x', 'y'), '\\((.*), (.*)\\)', convert = TRUE) %>% 
     relocate(x, .after = frame) %>% 
     relocate(y, .after = x) %>% 
@@ -99,16 +103,6 @@ all_ls <- lapply(track_ls, function(x){
   write.csv(track_save, file = paste0("/home/ceci/data/foraging/results/", unique(x$unique_trial_ID),".csv"))
 })
 
+result <- read.csv("/home/ceci/data/foraging/results/merged.csv")
 
-ggplot() +
-  geom_sf(data = islands_buffer$A, fill = "orange", color = "black") +
-  geom_sf(data = hex_ls$A, fill = "red", color = "black") +
-  geom_sf(data = islands_buffer$B, fill = "lightblue", color = "black") +
-  geom_sf(data = hex_ls$B, fill = "blue", color = "black") +
-  geom_sf(data = hex_ls$C, fill = "green", color = "black") +
-  #add buffer please
-  geom_sf(data = hex_ls$D, fill = "yellow", color = "black") +
-  #add buffer please
-  geom_sf(data = track_sf, color = "gray", alpha = 0.5) +
-  coord_sf() +
-  theme_bw()
+\
